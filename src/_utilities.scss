@@ -1,0 +1,22 @@
+@mixin spacing($attribute, $type) {
+  @each $key, $value in $spacing {
+    .#{$type}-#{$key} {
+      #{$attribute}: $value;
+    }
+    .#{$type}-t-#{$key} {
+      #{$attribute}-top: $value;
+    }
+    .#{$type}-b-#{$key} {
+      #{$attribute}-bottom: $value;
+    }
+    .#{$type}-l-#{$key} {
+      #{$attribute}-left: $value;
+    }
+    .#{$type}-r-#{$key} {
+      #{$attribute}-right: $value;
+    }
+  }
+}
+
+@include spacing(margin, m);
+@include spacing(padding, p);

@@ -1,0 +1,10 @@
+$base-padding: 0.25rem !default;
+
+$spacing: (
+  0: 0,
+  1: $base-padding,
+  2: $base-padding * 2,
+  3: $base-padding * 4,
+  4: $base-padding * 6,
+  5: $base-padding * 8,
+);

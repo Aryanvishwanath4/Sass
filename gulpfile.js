@@ -1,18 +1,18 @@
-const { src, dest, watch, series } = require("gulp");
+const gulp = require("gulp");
 const sass = require("gulp-sass")(require("sass"));
-const purgecss = require("gulp-purgecss");
 
-function buildStyles() {
-  return (
-    src("sass/**/*.scss")
-      .pipe(sass({ outputStyle: "compressed" }))
-      //.pipe(purgecss({ content: ["*.html"] }))
-      .pipe(dest("dist/css"))
-  );
-}
+// Define a task to compile Sass to CSS
+gulp.task("sass", function () {
+  return gulp
+    .src("src/**/*.scss") // Path to your main Sass file or files
+    .pipe(sass().on("error", sass.logError))
+    .pipe(gulp.dest("dist/")); // Output directory for compiled CSS
+});
 
-function watchTask() {
-  watch(["sass/**/*.scss", "*.html"], buildStyles);
-}
+// Define a task to watch for changes in Sass files
+gulp.task("watch", function () {
+  gulp.watch("src/**/*.scss", gulp.series("sass"));
+});
 
-exports.default = series(buildStyles, watchTask);
+// Define a default task
+gulp.task("default", gulp.series("sass", "watch"));
