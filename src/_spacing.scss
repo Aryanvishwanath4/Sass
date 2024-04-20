@@ -1,0 +1,30 @@
+@mixin spacing($attribute, $type) {
+  @each $key, $value in $spacing {
+    .#{$type}-#{$key} {
+      #{$attribute}: $value;
+    }
+    .#{$type}-t-#{$key} {
+      #{$attribute}-top: $value;
+    }
+    .#{$type}-b-#{$key} {
+      #{$attribute}-bottom: $value;
+    }
+    .#{$type}-l-#{$key} {
+      #{$attribute}-left: $value;
+    }
+    .#{$type}-r-#{$key} {
+      #{$attribute}-right: $value;
+    }
+    .#{$type}-x-#{$key} {
+      #{$attribute}-left: $value;
+      #{$attribute}-right: $value;
+    }
+    .#{$type}-y-#{$key} {
+      #{$attribute}-top: $value;
+      #{$attribute}-bottom: $value;
+    }
+  }
+}
+
+@include spacing(margin, m);
+@include spacing(padding, p);

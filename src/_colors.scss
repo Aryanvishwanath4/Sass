@@ -10,4 +10,7 @@
   .text-#{$key} {
     color: #{$value};
   }
+  .bg-#{$key} {
+    background-color: #{$value};
+  }
 }

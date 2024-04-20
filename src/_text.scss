@@ -1,0 +1,27 @@
+@each $property, $map in $utilitiesKeys {
+  $prefix: map-get($map, "prefix");
+  $values: map-get($map, "values");
+
+  @each $v in $values {
+    .#{$prefix}-#{$v} {
+      #{$property}: #{$v};
+    }
+  }
+}
+@each $property, $map in $utilitiesKeyValue {
+  $prefix: map-get($map, "prefix");
+  $values: map-get($map, "values");
+
+  @each $k, $v in $values {
+    .#{$prefix}-#{$k} {
+      #{$property}: #{$v};
+    }
+  }
+}
+@each $key, $value in map-get($font-size, values) {
+  $prefix: map-get($font-size, prefix);
+  .#{$prefix}-#{$key} {
+    font-size: map-get($value, font-size);
+    line-height: map-get($value, line-height);
+  }
+}
