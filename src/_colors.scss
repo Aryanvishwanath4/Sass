@@ -1,0 +1,13 @@
+.positive {
+  color: var(--positive-color) !important;
+}
+
+.negative {
+  color: var(--negative-color) !important;
+}
+
+@each $key, $value in $colors {
+  .text-#{$key} {
+    color: #{$value};
+  }
+}
